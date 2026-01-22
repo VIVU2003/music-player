@@ -39,9 +39,10 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "owner": "vivek_2003",
     "extra": {
       "eas": {
-        "projectId": "60b89cf2-aa36-4cb7-a3eb-e46ba8c39cb8"
+        "projectId": "a051fc95-9812-4ade-bb46-bc8c53e7b0c4"
       }
     }
   }
