@@ -598,6 +598,13 @@ export function HomeScreen() {
           <Text style={styles.emptyIcon}>🎵</Text>
           <Text style={styles.emptyTitle}>Start Exploring</Text>
           <Text style={styles.emptySubtitle}>Search for your favorite songs</Text>
+          <Pressable
+            style={styles.searchButton}
+            onPress={() => navigation.navigate('Search')}
+          >
+            <Ionicons name="search" size={20} color={colors.text} />
+            <Text style={styles.searchButtonText}>Search Songs</Text>
+          </Pressable>
         </View>
       )}
     </ScrollView>
@@ -1341,6 +1348,22 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     fontSize: 15,
     textAlign: 'center',
+    marginBottom: 24,
+  },
+  searchButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.primary,
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 24,
+    gap: 8,
+  },
+  searchButtonText: {
+    color: colors.text,
+    fontSize: 16,
+    fontWeight: '600',
   },
   artistsContainer: {
     flex: 1,

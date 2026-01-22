@@ -16,9 +16,12 @@
       "supportsTablet": true,
       "infoPlist": {
         "UIBackgroundModes": [
+          "audio",
           "audio"
-        ]
-      }
+        ],
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "bundleIdentifier": "com.vivek.musicplayer"
     },
     "android": {
       "permissions": [
@@ -35,6 +38,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "60b89cf2-aa36-4cb7-a3eb-e46ba8c39cb8"
+      }
     }
   }
 }
