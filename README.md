@@ -80,13 +80,17 @@ src/
 ⚙️ Getting Started
 
 1️⃣ Clone the repository
+      
 git clone https://github.com/VIVU2003/music-player.git
+
 cd music-player
 
 2️⃣ Install dependencies
+
 npm install
 
 3️⃣ Run the app
+
 npx expo start
 
 For Android:
