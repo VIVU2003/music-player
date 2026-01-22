@@ -102,7 +102,7 @@ npm run android
 The Android APK was generated using Expo EAS Build.
 
 📥 Download APK:
-https://drive.google.com/file/d/1BsK1EWx6i4E9Qa7_rI10DM71sJaGyZQ2/view?usp=sharing
+https://drive.google.com/file/d/1o6S51aEMF3sXpC9i8z2FAeqsBbuXoVbi/view?usp=sharing
 (Note: iOS build was not generated because it requires a paid Apple Developer account.)
 
 🔌 API Notes
