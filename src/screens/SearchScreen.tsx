@@ -13,7 +13,7 @@ import { formatTime } from '../utils/time';
 
 type Category = 'Songs' | 'Artists' | 'Albums' | 'Folders';
 
-const RECENT_SEARCHES_KEY = '@mume:recent_searches';
+const RECENT_SEARCHES_KEY = '@soundwave:recent_searches';
 
 function isValidSearchResult(query: string, title: string, artist: string): boolean {
   const normalizedQuery = query.toLowerCase().trim();

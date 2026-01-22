@@ -904,7 +904,7 @@ export function HomeScreen() {
       <View style={[styles.header, { paddingTop: insets.top + 16 }]}>
         <View style={styles.headerLeft}>
           <Text style={styles.logo}>🎵</Text>
-          <Text style={styles.appName}>Mume</Text>
+          <Text style={styles.appName}>SoundWave</Text>
         </View>
         <Pressable onPress={() => navigation.navigate('Search')}>
           <Text style={styles.searchIcon}>🔍</Text>

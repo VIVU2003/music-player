@@ -163,7 +163,7 @@ export function SettingsScreen() {
       </View>
 
       <View style={styles.footer}>
-        <Text style={styles.footerText}>Mume Music Player</Text>
+        <Text style={styles.footerText}>SoundWave Music Player</Text>
         <Text style={styles.footerVersion}>Version 1.0.0</Text>
       </View>
     </ScrollView>
