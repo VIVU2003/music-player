@@ -16,11 +16,8 @@ async function unload() {
   if (!sound) return;
   const s = sound;
   sound = null;
-  try {
-    await s.unloadAsync();
-  } catch {
-
-  }
+  s.unloadAsync().catch(() => {
+  });
 }
 
 export async function loadAndPlay(uri: string) {

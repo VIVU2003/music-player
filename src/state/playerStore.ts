@@ -188,12 +188,16 @@ export const usePlayerStore = create<PlayerState>()(
         const downloadedPath = get().downloadedSongs[queue[i].id];
         const uriToPlay = downloadedPath || queue[i].streamUrl;
         if (downloadedPath) {
-          await engine.loadAndPlayFromPath(uriToPlay);
+          engine.loadAndPlayFromPath(uriToPlay).catch((error) => {
+            set({ lastError: error instanceof Error ? error.message : 'Failed to load song' });
+          });
         } else {
-          await engine.loadAndPlay(uriToPlay);
+          engine.loadAndPlay(uriToPlay).catch((error) => {
+            set({ lastError: error instanceof Error ? error.message : 'Failed to load song' });
+          });
         }
-        await engine.setRate(get().playbackRate);
-        await engine.setVolume(get().volume);
+        engine.setRate(get().playbackRate).catch(() => {});
+        engine.setVolume(get().volume).catch(() => {});
       },
 
       playIndex: async (index) => {
@@ -247,12 +251,16 @@ export const usePlayerStore = create<PlayerState>()(
         const downloadedPath = get().downloadedSongs[queue[i].id];
         const uriToPlay = downloadedPath || queue[i].streamUrl;
         if (downloadedPath) {
-          await engine.loadAndPlayFromPath(uriToPlay);
+          engine.loadAndPlayFromPath(uriToPlay).catch((error) => {
+            set({ lastError: error instanceof Error ? error.message : 'Failed to load song' });
+          });
         } else {
-          await engine.loadAndPlay(uriToPlay);
+          engine.loadAndPlay(uriToPlay).catch((error) => {
+            set({ lastError: error instanceof Error ? error.message : 'Failed to load song' });
+          });
         }
-        await engine.setRate(get().playbackRate);
-        await engine.setVolume(get().volume);
+        engine.setRate(get().playbackRate).catch(() => {});
+        engine.setVolume(get().volume).catch(() => {});
       },
 
       loadCurrentSong: async () => {
@@ -359,9 +367,13 @@ export const usePlayerStore = create<PlayerState>()(
         }
 
         if (song && song.streamUrl) {
-          await engine.load(song.streamUrl);
-          await engine.setRate(get().playbackRate);
-          await engine.setVolume(get().volume);
+          const downloadedPath = get().downloadedSongs[song.id];
+          const uriToLoad = downloadedPath || song.streamUrl;
+          engine.load(uriToLoad).catch((error) => {
+            set({ lastError: error instanceof Error ? error.message : 'Failed to load song' });
+          });
+          engine.setRate(get().playbackRate).catch(() => {});
+          engine.setVolume(get().volume).catch(() => {});
         }
       },
 

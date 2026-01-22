@@ -177,7 +177,6 @@ export function SearchResultsScreen() {
               style={styles.songItem}
               onPress={() => {
                 void setQueueAndPlay(songResults, index);
-                navigation.navigate('Player');
               }}
             >
               {item.artworkUrl ? (
@@ -200,7 +199,6 @@ export function SearchResultsScreen() {
                 onPress={(e) => {
                   e.stopPropagation();
                   void setQueueAndPlay(songResults, index);
-                  navigation.navigate('Player');
                 }}
               >
                 <Text style={styles.playIcon}>▶</Text>
@@ -326,7 +324,6 @@ export function SearchResultsScreen() {
             const insertIndex = currentIndex >= 0 ? currentIndex + 1 : queue.length;
             newQueue.splice(insertIndex, 0, selectedSong);
             void store.setQueueAndPlay(newQueue, insertIndex);
-            navigation.navigate('Player');
           }
         }}
         onDetails={() => {
