@@ -1,99 +1,84 @@
-🎧 SoundWave — React Native Music Player
+🎧 SoundWave
 
-(React Native Intern Assignment)
+A Modern Music Streaming Experience Built with React Native
 
-A modern music streaming application built with React Native + Expo, featuring real-time audio playback, search and queue management.
+SoundWave is a full-featured music player application designed to deliver a smooth, responsive, and intuitive listening experience.
+Built using React Native + Expo, SoundWave integrates with the JioSaavn API and implements real-world music player functionality such as queue management, mini player synchronization, shuffle & repeat modes, and background playback.
 
-This project integrates the unofficial JioSaavn API and focuses on clean architecture, scalable state management, and smooth UI/UX.
+This project was developed as part of a React Native internship assignment, with a strong focus on scalable architecture, clean state management, and product-level UI/UX.
 
-🔗 API Used
+✨ Key Highlights
 
-Music data is fetched from the JioSaavn API via:
+   🎵 Real-time audio playback with global state synchronization
 
-https://saavn.sumit.co/
+   🧩 Modular and scalable architecture
 
+   🔄 Persistent queue and playback state
 
-Docs: https://saavn.sumit.co/docs
+   🎛️ Mini player synced with full player across navigation
 
-🚀 Features Implemented
-🎵 Core Player Features
+   ⚡ Fast search powered by JioSaavn API
 
-Play / Pause / Next / Previous
+🚀 Features
+ 
+🎵 Music Playback
+      Play / Pause / Next / Previous
+      Seek bar with precise progress control
+      Shuffle & Repeat modes (off / all / one)
+      Background audio playback
+      Persistent playback state across sessions
+      
+🔍 Discovery & Browsing
+      Home (Suggested tracks)
+      Songs search with real-time API results
+      Artists and Albums browsing
+      Global search functionality
+      Bottom tab navigation
 
-Seek bar with progress tracking
+📜 Queue System
+      Add tracks to queue
+      Remove tracks from queue
+      Drag-and-drop reordering
+      Persistent queue using AsyncStorage
 
-Shuffle & Repeat modes (off / all / one)
+🎨 User Experience
+      Mini player always visible during navigation
+      Clean dark theme inspired by modern streaming apps
+      Responsive layouts across devices
+      Smooth animations and transitions
+      Proper loading and empty states
+      
+🏗️ System Architecture
 
-Background audio playback
+SoundWave follows a layered architecture to ensure maintainability and scalability:
 
-Persistent playback state
+UI Screens → Global State (Zustand) → Audio Engine (Expo AV) → API Layer (JioSaavn)
 
-Mini player synced with full player across screens
+## 📂 Project Structure
 
-🔍 Discovery & Navigation
-
-Home (Suggested songs)
-
-Songs search with API integration
-
-Artists tab
-
-Albums tab
-
-Global search
-
-Bottom navigation bar
-
-📜 Queue Management
-
-Add songs to queue
-
-Remove songs from queue
-
-Drag & reorder queue
-
-Queue persistence using AsyncStorage
-
-🎨 UI / UX
-
-Responsive layouts
-
-Clean and minimal design
-
-Proper loading & empty states
-
-Smooth navigation between screens
-
-🏗️ Architecture Overview
-
-The app follows a modular and scalable architecture:
-
-UI Screens → Player Store (Zustand) → Audio Engine (Expo AV) → API Layer (JioSaavn)
-
-Folder Structure
 src/
- ├── api/          # API integration (JioSaavn)
- ├── audio/        # Audio playback logic
- ├── components/   # Reusable UI components
- ├── navigation/   # App navigation
- ├── screens/      # App screens
- ├── state/        # Global state management (Zustand + persist)
- ├── theme/        # Colors & styling
- ├── types/        # TypeScript types
+├── api/ # JioSaavn API integration
+├── audio/ # Audio playback engine (Expo AV)
+├── components/ # Reusable UI components
+├── navigation/ # React Navigation setup
+├── screens/ # App screens (Home, Player, Search, Queue, etc.)
+├── state/ # Global state (Zustand + persistence)
+├── theme/ # Design system & styling
+├── types/ # TypeScript type definitions
+└── utils/ # Helper functions
 
-Key Technical Choices
+🛠️ Tech Stack
+        React Native
+        Expo
+        TypeScript
+        Zustand (State Management)
+        React Navigation
+        Expo AV (Audio Engine)
+        AsyncStorage
+        JioSaavn API
 
-API Layer: src/api/saavn.ts normalizes Saavn responses into a stable internal model
+⚙️ Getting Started
 
-State Management: Zustand with persistence (playerStore.ts)
-
-Audio Engine: Expo AV (src/audio/*) with store as single source of truth
-
-Navigation: React Navigation v6+
-
-Persistence: AsyncStorage for queue & playback state
-
-⚙️ Setup & Installation
 1️⃣ Clone the repository
 git clone https://github.com/VIVU2003/music-player.git
 cd music-player
@@ -104,60 +89,47 @@ npm install
 3️⃣ Run the app
 npx expo start
 
-
 For Android:
 
 npm run android
 
-📦 APK Build
+📦 Android APK
 
 The Android APK was generated using Expo EAS Build.
 
-Note: iOS build was not generated because it requires a paid Apple Developer account.
+📥 Download APK:
+https://drive.google.com/file/d/1BsK1EWx6i4E9Qa7_rI10DM71sJaGyZQ2/view?usp=sharing
+(Note: iOS build was not generated because it requires a paid Apple Developer account.)
 
-📥 APK Download Link:
+🔌 API Notes
 
+   SoundWave uses an unofficial JioSaavn API.
+   Due to the nature of the API:
+      Search results may sometimes be fuzzy.
+      Default trending data is handled internally by the app.
 
+🧠 Design Decisions & Trade-offs
 
-📝 Notes & Trade-offs
+   Zustand was chosen for lightweight and scalable global state management.
+   Expo AV was used for simplified audio handling in a managed Expo workflow.
+   For OS-level media controls, the app can be extended using react-native-track-player.
 
-Playback is implemented using Expo AV for simplicity within the managed Expo workflow.
+📈 Future Enhancements
 
-For advanced OS-level media controls (lockscreen / notification controls), the app can be extended using react-native-track-player with a dev-client or prebuild workflow.
+   OS-level media controls (lockscreen / notifications)
+   User playlists & favorites
+   Offline downloads
+   Personalized recommendations
+   Improved search ranking
 
-Since JioSaavn is an unofficial API, search results may sometimes be fuzzy or approximate.
-
-✨ Bonus Features
-
-Shuffle & repeat modes
-
-Mini player synced globally
-
-Queue reorder & persistence
-
-Modular scalable architecture
-
-Spotify-like UI enhancements
-
-📌 Key Learnings
-
-Designing scalable React Native architecture
-
-Managing global audio state with Zustand
-
-Handling async API data and edge cases
-
-Building responsive and modern UI
-
-Implementing real-world music player features
-
-👨‍💻 Developed By
+👨‍💻 Author
 
 Vivek Kewalramani
 B.Tech Computer Science Engineering
 
 GitHub: https://github.com/VIVU2003
 
-⭐ Final Note
+⭐ Final Thoughts
 
-This project was built with a focus on clean code, modular design, and real-world app behavior, going beyond basic assignment requirements.
+SoundWave demonstrates a production-style approach to building a music streaming app with React Native.
+The project emphasizes clean architecture, real-world features, and scalable design — going beyond basic assignment requirements.
